@@ -1,0 +1,285 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://ws.academico.com/" name="academico" targetNamespace="http://ws.academico.com/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ws.academico.com/" targetNamespace="http://ws.academico.com/" version="1.0">
+
+  <xs:complexType name="pftModalidad">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="modCodigo" type="xs:string"/>
+      <xs:element minOccurs="0" name="modId" type="xs:int"/>
+      <xs:element minOccurs="0" name="modNombre" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="pftProgramaList" nillable="true" type="tns:pftPrograma"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="pftPrograma">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="modId" type="tns:pftModalidad"/>
+      <xs:element minOccurs="0" name="nacId" type="tns:pftNivelAcademico"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="pftPersonaList" nillable="true" type="tns:pftPersona"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="pftVariacionList" nillable="true" type="tns:pftVariacion"/>
+      <xs:element minOccurs="0" name="praCodigo" type="xs:string"/>
+      <xs:element minOccurs="0" name="praId" type="xs:int"/>
+      <xs:element minOccurs="0" name="praNombre" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="pftNivelAcademico">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nacCodigo" type="xs:string"/>
+      <xs:element minOccurs="0" name="nacDescripcion" type="xs:string"/>
+      <xs:element minOccurs="0" name="nacId" type="xs:int"/>
+      <xs:element minOccurs="0" name="nacNombre" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="pftProgramaList" nillable="true" type="tns:pftPrograma"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="pftPersona">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="entId" type="xs:int"/>
+      <xs:element minOccurs="0" name="entIdentificacion" type="xs:string"/>
+      <xs:element minOccurs="0" name="perClave" type="xs:string"/>
+      <xs:element minOccurs="0" name="perFechaNacimiento" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="perGeneroId" type="xs:string"/>
+      <xs:element minOccurs="0" name="perIdDepartamento" type="tns:pftDepartamento"/>
+      <xs:element minOccurs="0" name="perIdRol" type="tns:pftRol"/>
+      <xs:element minOccurs="0" name="perIdSeccion" type="tns:pftSeccion"/>
+      <xs:element minOccurs="0" name="perNombre" type="xs:string"/>
+      <xs:element minOccurs="0" name="perPrimerApellido" type="xs:string"/>
+      <xs:element minOccurs="0" name="perPrimerNombre" type="xs:string"/>
+      <xs:element minOccurs="0" name="perSegundoApellido" type="xs:string"/>
+      <xs:element minOccurs="0" name="perSegundoNombre" type="xs:string"/>
+      <xs:element minOccurs="0" name="perUsuario" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="pftAprobacionList" nillable="true" type="tns:pftAprobacion"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="pftHistorialCambiosList" nillable="true" type="tns:pftHistorialCambios"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="pftProyectoList" nillable="true" type="tns:pftProyecto"/>
+      <xs:element minOccurs="0" name="praId" type="tns:pftPrograma"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="pftDepartamento">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="deptDescripcion" type="xs:string"/>
+      <xs:element minOccurs="0" name="deptId" type="xs:int"/>
+      <xs:element minOccurs="0" name="deptNombre" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="pftPersonaList" nillable="true" type="tns:pftPersona"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="pftSeccionList" nillable="true" type="tns:pftSeccion"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="pftSeccion">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="pftPersonaList" nillable="true" type="tns:pftPersona"/>
+      <xs:element minOccurs="0" name="secDescripcion" type="xs:string"/>
+      <xs:element minOccurs="0" name="secId" type="xs:int"/>
+      <xs:element minOccurs="0" name="secIdDepartamento" type="tns:pftDepartamento"/>
+      <xs:element minOccurs="0" name="secNombre" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="pftRol">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="pftPersonaList" nillable="true" type="tns:pftPersona"/>
+      <xs:element minOccurs="0" name="rolId" type="xs:int"/>
+      <xs:element minOccurs="0" name="rolTipo" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="pftAprobacion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="aproCalificacion" type="xs:string"/>
+      <xs:element minOccurs="0" name="aproComentarios" type="xs:string"/>
+      <xs:element minOccurs="0" name="aproId" type="xs:int"/>
+      <xs:element minOccurs="0" name="aproIdEstado" type="tns:pftAproEstado"/>
+      <xs:element minOccurs="0" name="aproIdPersona" type="tns:pftPersona"/>
+      <xs:element minOccurs="0" name="aproIdProyecto" type="tns:pftProyecto"/>
+      <xs:element minOccurs="0" name="aproObservaciones" type="xs:string"/>
+      <xs:element minOccurs="0" name="aproRecomendaciones" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="pftHistorialCambiosList" nillable="true" type="tns:pftHistorialCambios"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="pftAproEstado">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="estEstado" type="xs:string"/>
+      <xs:element minOccurs="0" name="estId" type="xs:int"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="pftAprobacionList" nillable="true" type="tns:pftAprobacion"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="pftProyecto">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="pftAprobacionList" nillable="true" type="tns:pftAprobacion"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="pftHistorialCambiosList" nillable="true" type="tns:pftHistorialCambios"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="pftPlanificacionList" nillable="true" type="tns:pftPlanificacion"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="pftProyectoCompetenciaList" nillable="true" type="tns:pftProyectoCompetencia"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="pftProyectoComponentesList" nillable="true" type="tns:pftProyectoComponentes"/>
+      <xs:element minOccurs="0" name="proComponentePractico" type="xs:string"/>
+      <xs:element minOccurs="0" name="proComponenteTeorico" type="xs:string"/>
+      <xs:element minOccurs="0" name="proDescripcion" type="xs:string"/>
+      <xs:element minOccurs="0" name="proDuracion" type="xs:string"/>
+      <xs:element minOccurs="0" name="proId" type="xs:int"/>
+      <xs:element minOccurs="0" name="proIdPersona" type="tns:pftPersona"/>
+      <xs:element minOccurs="0" name="proProposito" type="xs:string"/>
+      <xs:element minOccurs="0" name="proTitulo" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="pftHistorialCambios">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="histFecha" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="histId" type="xs:int"/>
+      <xs:element minOccurs="0" name="histIdAprobacion" type="tns:pftAprobacion"/>
+      <xs:element minOccurs="0" name="histIdPersona" type="tns:pftPersona"/>
+      <xs:element minOccurs="0" name="histIdProyecto" type="tns:pftProyecto"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="pftPlanificacion">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="pftPlanificacionEntregableList" nillable="true" type="tns:pftPlanificacionEntregable"/>
+      <xs:element minOccurs="0" name="plaCronograma" type="xs:base64Binary"/>
+      <xs:element minOccurs="0" name="plaId" type="xs:int"/>
+      <xs:element minOccurs="0" name="plaIdProyecto" type="tns:pftProyecto"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="pftPlanificacionEntregable">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="plaEnId" type="xs:int"/>
+      <xs:element minOccurs="0" name="plaEnIdEntregable" type="tns:pftEntregable"/>
+      <xs:element minOccurs="0" name="plaEnIdPlanificacion" type="tns:pftPlanificacion"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="pftEntregable">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="entEntregable" type="xs:string"/>
+      <xs:element minOccurs="0" name="entFechaFin" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="entFechaInicio" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="entId" type="xs:int"/>
+      <xs:element minOccurs="0" name="entSubEntregable" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="pftEntregableProblemaList" nillable="true" type="tns:pftEntregableProblema"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="pftEntregableRiesgoList" nillable="true" type="tns:pftEntregableRiesgo"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="pftPlanificacionEntregableList" nillable="true" type="tns:pftPlanificacionEntregable"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="pftEntregableProblema">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="entProId" type="xs:int"/>
+      <xs:element minOccurs="0" name="entProIdEntregable" type="tns:pftEntregable"/>
+      <xs:element minOccurs="0" name="entProIdProblema" type="tns:pftProblema"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="pftProblema">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="pftEntregableProblemaList" nillable="true" type="tns:pftEntregableProblema"/>
+      <xs:element minOccurs="0" name="proId" type="xs:int"/>
+      <xs:element minOccurs="0" name="proImpacto" type="xs:string"/>
+      <xs:element minOccurs="0" name="proProblema" type="xs:string"/>
+      <xs:element minOccurs="0" name="proSolucion" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="pftEntregableRiesgo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="entRiId" type="xs:int"/>
+      <xs:element minOccurs="0" name="entRiIdEntregable" type="tns:pftEntregable"/>
+      <xs:element minOccurs="0" name="entRiIdRiesgo" type="tns:pftRiesgo"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="pftRiesgo">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="pftEntregableRiesgoList" nillable="true" type="tns:pftEntregableRiesgo"/>
+      <xs:element minOccurs="0" name="riesAcciones" type="xs:string"/>
+      <xs:element minOccurs="0" name="riesId" type="xs:int"/>
+      <xs:element minOccurs="0" name="riesImpacto" type="xs:string"/>
+      <xs:element minOccurs="0" name="riesRiesgo" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="pftProyectoCompetencia">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="proyCompId" type="xs:int"/>
+      <xs:element minOccurs="0" name="proyCompIdCompetencia" type="tns:pftCompetencias"/>
+      <xs:element minOccurs="0" name="proyCompIdNivelCompetencia" type="tns:pftNivelCompetencia"/>
+      <xs:element minOccurs="0" name="proyCompIdProyecto" type="tns:pftProyecto"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="pftCompetencias">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="compCompetencia" type="xs:string"/>
+      <xs:element minOccurs="0" name="compId" type="xs:int"/>
+      <xs:element minOccurs="0" name="compIdTipo" type="tns:pftTipoCompetencia"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="pftProyectoCompetenciaList" nillable="true" type="tns:pftProyectoCompetencia"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="pftTipoCompetencia">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="pftCompetenciasList" nillable="true" type="tns:pftCompetencias"/>
+      <xs:element minOccurs="0" name="TCompId" type="xs:int"/>
+      <xs:element minOccurs="0" name="TCompTipo" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="pftNivelCompetencia">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nivCompId" type="xs:int"/>
+      <xs:element minOccurs="0" name="nivCompNivel" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="pftProyectoCompetenciaList" nillable="true" type="tns:pftProyectoCompetencia"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="pftProyectoComponentes">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="proyCoId" type="xs:int"/>
+      <xs:element minOccurs="0" name="proyCoIdCompDesarrollo" type="tns:pftComponentesDesarrollo"/>
+      <xs:element minOccurs="0" name="proyCoIdProyecto" type="tns:pftProyecto"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="pftComponentesDesarrollo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="compDeComponente" type="xs:string"/>
+      <xs:element minOccurs="0" name="compDeId" type="xs:int"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="pftProyectoComponentesList" nillable="true" type="tns:pftProyectoComponentes"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="pftVariacion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ecvDescripcion" type="xs:string"/>
+      <xs:element minOccurs="0" name="ecvId" type="xs:int"/>
+      <xs:element minOccurs="0" name="ecvNombre" type="xs:string"/>
+      <xs:element minOccurs="0" name="ecvTotalCreditos" type="xs:int"/>
+      <xs:element minOccurs="0" name="praId" type="tns:pftPrograma"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType final="#all" name="pftModalidadArray">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:pftModalidad"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="buscarModalidades">
+  </wsdl:message>
+  <wsdl:message name="buscarModalidadesResponse">
+    <wsdl:part name="return" type="ns1:pftModalidadArray">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="academico">
+    <wsdl:operation name="buscarModalidades">
+      <wsdl:input message="ns1:buscarModalidades" name="buscarModalidades">
+    </wsdl:input>
+      <wsdl:output message="ns1:buscarModalidadesResponse" name="buscarModalidadesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

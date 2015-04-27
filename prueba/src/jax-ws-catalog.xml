@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:8080/gestionTesisWebService-1.0/academico/AcademicoImplement?wsdl" uri="wsdl/localhost_8080/gestionTesisWebService-1.0/academico/AcademicoImplement.wsdl"/>
+    <system systemId="http://localhost:8080/gestionTesisWebService-1.0/academico/AcademicoImplement?wsdl=Academico.wsdl" uri="wsdl/localhost_8080/gestionTesisWebService-1.0/academico/AcademicoImplement.wsdl_Academico.wsdl"/>
+    <system systemId="http://localhost:8080/gestionTesisWebService-1.0/academico/Academico?wsdl" uri="wsdl/localhost_8080/gestionTesisWebService-1.0/academico/Academico.wsdl"/>
+    <system systemId="http://localhost:8080/GestionWebServiceWeb-1.0/academico/Academico?wsdl" uri="wsdl/localhost_8080/GestionWebServiceWeb-1.0/academico/Academico.wsdl"/>
+    <system systemId="http://localhost:8080/gestionTesisWebService-1.0/academico/academico?WSDL" uri="wsdl/localhost_8080/gestionTesisWebService-1.0/academico/academico.wsdl"/>
+    <system systemId="file:/home/usuario/.netbeans/8.0/config/WebServices/AcademicoImplement/catalog/localhost_8080/GestionTesisWebService-1.0/AcademicoImplement.wsdl" uri="wsdl/AcademicoImplement.wsdl"/>
+    <system systemId="http://localhost:8080/GestionTesisWebService-1.0/AcademicoImplement?wsdl" uri="wsdl/localhost_8080/GestionTesisWebService-1.0/AcademicoImplement.wsdl"/>
+    <system systemId="http://localhost:8080/GestionTesisWebService-1.0/AcademicoImplement?wsdl=academico.wsdl" uri="wsdl/localhost_8080/GestionTesisWebService-1.0/AcademicoImplement.wsdl_academico.wsdl"/>
+</catalog>
