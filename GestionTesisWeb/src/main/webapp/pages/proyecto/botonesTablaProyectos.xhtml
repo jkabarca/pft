@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <body>
+        <h:panelGrid styleClass="pnl-botones" id="pnlBotonesTblProyecto" columns="3">
+            <p:commandButton  onstart="PF('dlgLoading').show()" 
+                              value="Crear"
+                              oncomplete="PF('dlgLoading').hide()" icon="ui-icon-newwin" 
+                              action="#{proyectoController.crear()}">
+            </p:commandButton>
+        </h:panelGrid>
+    </body>
+
+</html>

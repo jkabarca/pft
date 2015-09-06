@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="./../../template.xhtml">
+        <ui:define name="title"><h:outputText value="Editar Proyecto"/></ui:define>
+        <ui:define name="top">
+            <ui:include src="./../inicio/menu.xhtml"/>
+        </ui:define>
+        <ui:define name="content">
+
+            <p:growl id="msm" showDetail="true" /> 
+            <p:panel header="Datos de Proyecto">
+                <p:panel>
+                    <h:panelGrid columns="2">
+                        <p:outputLabel value="Titulo:"  />
+                        <p:inputText id="proTitulo" value="#{proyectoSession.pftProyecto.proTitulo}" title="ProTitulo" />
+                        <p:outputLabel value="Duracion:" />
+                        <p:inputText id="proDuracion" value="#{proyectoSession.pftProyecto.proDuracion}" title="ProDuracion" />
+                        <p:outputLabel value="Descripcion:"/>
+                        <p:inputTextarea rows="4" cols="30" id="proDescripcion" value="#{proyectoSession.pftProyecto.proDescripcion}" title="ProDescripcion" />
+                        <p:outputLabel value="Componente Teórico:"  />
+                        <p:inputText id="proComponenteTeorico" value="#{proyectoSession.pftProyecto.proComponenteTeorico}" title="ProComponenteTeorico" />
+                        <p:outputLabel value="Componente Práctico:" />
+                        <p:inputText id="proComponentePractico" value="#{proyectoSession.pftProyecto.proComponentePractico}" title="ProComponentePractico" />
+                        <p:outputLabel value="Proposito:" />
+                        <p:inputTextarea rows="4" cols="30" id="proProposito" value="#{proyectoSession.pftProyecto.proProposito}" title="ProProposito" />
+                    </h:panelGrid>
+
+                </p:panel>
+                <br/>
+                <p:panel header="Competencias">
+                    <ui:include src="pickListCompetencias.xhtml"/>
+                </p:panel>
+                <f:facet name="footer">
+                    <p:commandButton value="Guardar" onstart="PF('dlgLoading').show()"
+                                     oncomplete="PF('dlgLoading').hide()" update=":contenido:msm"  icon="ui-icon-disk" action="#{proyectoController.guardar()}" />
+                </f:facet>
+            </p:panel>
+        </ui:define>
+    </ui:composition>
+</html>
